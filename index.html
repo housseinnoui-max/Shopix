@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>✨ Shopix ✨</title>
+<style>
+  * { box-sizing: border-box; margin:0; padding:0; }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #ffecd2, #fcb69f);
+    min-height: 100vh;
+  }
+  .container {
+    max-width:480px;
+    margin:30px auto;
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 10px 20px rgba(0,0,0,0.2);
+  }
+  .header { text-align:center; margin-bottom:20px; }
+  .page-name {
+    font-size:32px;
+    font-weight:bold;
+    color:#28a745;
+    letter-spacing:2px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+    margin-bottom:8px;
+  }
+  .contacts { font-size:16px; color:#555; margin-bottom:8px; }
+  .social-icons a {
+    margin: 0 10px;
+    font-size:24px;
+    color:#555;
+    text-decoration:none;
+    transition: transform 0.2s, color 0.2s;
+  }
+  .social-icons a:hover { color:#28a745; transform: scale(1.2); }
+  h2 { font-size:20px; margin-bottom:10px; text-align:center; color:#333; }
+  p { line-height:1.6; text-align:center; font-size:16px; }
+  .product-img, video { width:100%; border-radius:12px; margin-bottom:12px; display:none; box-shadow:0 5px 15px rgba(0,0,0,0.1); }
+  input, select, textarea { width:100%; padding:10px; margin:8px 0; border-radius:8px; border:1px solid #ccc; font-size:16px; }
+  button {
+    width:100%;
+    padding:14px;
+    background:#28a745;
+    color:white;
+    font-size:18px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    transition: background 0.3s, transform 0.2s;
+  }
+  button:hover { background:#218838; transform: scale(1.02); }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- الهيدر مع الاسم ورقم الهاتف -->
+  <div class="header">
+    <div class="page-name">✨ S h o p i x ✨</div>
+    <div class="contacts">📞 0796024565</div>
+    <div class="social-icons">
+      <a href="https://facebook.com" target="_blank">📘</a>
+      <a href="https://instagram.com" target="_blank">📸</a>
+    </div>
+  </div>
+
+  <h2>مكتب + كرسي للأطفال لمختلف النشاطات</h2>
+  <p><strong>السعر: 2800 دج</strong></p>
+  <p>املأ المعلومات التالية لإتمام طلبك. سنتصل بك للتأكيد.</p>
+
+  <!-- الصور -->
+  <img src="hello-kitty.jpg" class="product-img" id="hello-kitty" alt="Hello Kitty" />
+  <img src="cars.jpg" class="product-img" id="cars" alt="Cars" />
+  <img src="mickey.jpg" class="product-img" id="mickey" alt="Mickey Mouse" />
+  <img src="shaun.jpg" class="product-img" id="shaun" alt="Shaun the Sheep" />
+  <img src="spiderman.jpg" class="product-img" id="spiderman" alt="Spiderman" />
+
+  <!-- الفيديو -->
+  <video controls class="product-img" id="video">
+    <source src="video.mp4" type="video/mp4">
+    متصفحك لا يدعم عرض الفيديو.
+  </video>
+
+  <!-- النموذج -->
+  <form action="https://formsubmit.co/housseinnoui@gmail.com" method="POST">
+    <input type="hidden" name="_captcha" value="false">
+
+    <label>الاسم واللقب:</label>
+    <input type="text" name="fullname" required>
+
+    <label>رقم الهاتف:</label>
+    <input type="text" name="phone" required>
+
+    <label>الولاية:</label>
+    <input type="text" name="wilaya" required>
+
+    <label>البلدية:</label>
+    <input type="text" name="baladiya" required>
+
+    <label>العنوان الكامل:</label>
+    <textarea name="address" rows="3" required></textarea>
+
+    <label>الكمية:</label>
+    <select name="quantity" required>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+    </select>
+
+    <label>اختر المنتج:</label>
+    <select name="product" id="product" required onchange="showProduct()">
+      <option value="">اختر المنتج</option>
+      <option value="hello-kitty">Hello Kitty (هلو كيتي)</option>
+      <option value="cars">Cars (سيارات)</option>
+      <option value="mickey">Mickey Mouse (ميكي ماوس)</option>
+      <option value="shaun">Shaun the Sheep (شون ذا شيب)</option>
+      <option value="spiderman">Spiderman (سبيدرمان)</option>
+    </select>
+
+    <button type="submit">إرسال الطلب</button>
+  </form>
+</div>
+
+<script>
+function showProduct() {
+  const selected = document.getElementById('product').value;
+  const imgs = document.querySelectorAll('.product-img');
+  imgs.forEach(img => img.style.display = 'none'); // إخفاء كل الصور والفيديو
+  if(selected) {
+    document.getElementById(selected).style.display = 'block'; // إظهار الصورة المختارة
+    document.getElementById('video').style.display = 'block';  // إظهار الفيديو
+  }
+}
+</script>
+
+</body>
+</html>
